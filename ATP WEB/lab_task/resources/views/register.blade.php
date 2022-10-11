@@ -75,22 +75,30 @@ a {
     <p>Please fill in this form to create an account.</p>
     <hr>
 
+    <label for="name"><b>Name</b></label>
+    <input type="text" placeholder="Enter Name" name="name" id="name">
+    @if($errors->has('name'))
+    {{$errors->first('name')}}
+    @endif
+    <br>
+
     <label for="email"><b>Email</b></label>
     <input type="text" placeholder="Enter Email" name="email" id="email">
     @if($errors->has('email'))
-    <b>{{$errors->first('address')}}</b>
+    {{$errors->first('email')}}
     @endif
+    <br>
 
+    <label for="phone"><b>Phone</b></label>
+    <input type="text" placeholder="Enter PhoneNO" name="phone" id="phone">
+    @if($errors->has('phone'))
+    {{$errors->first('phone')}}
+    @endif
+    <br>
     <label for="psw"><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="psw" id="psw">
-    @if($errors->has('email'))
-    <b>{{$errors->first('address')}}</b>
-    @endif
-
-    <label for="psw-repeat"><b>Repeat Password</b></label>
-    <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat">
-    @if($errors->has('email'))
-    <b>{{$errors->first('address')}}</b>
+    @if($errors->has('psw'))
+    {{$errors->first('psw')}}
     @endif
     <hr>
     <center><button type="submit" class="registerbtn">Register</button></center>

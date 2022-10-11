@@ -15,23 +15,22 @@ class RegisterController extends Controller
     {
         $this->validate($request,
         [
-            'address'=>'regex:/^[a-zA-Z,]+$/',
-            'occupation'=>'required',
-            'gender'=>'required|string',
-            'language'=>'required|string',
-            'zipcode'=>'required|regex:/^[0-9]{4,4}$/'
+            'name'=> 'required|regex:/^[a-zA-Z,]+$/',
+            'email' => 'required|regex:/(.+)@(.+)\.(.+)/i',
+            'phone' => 'required|regex:/(01)[0-9]{9}/',
+            'psw'=> 'required|string|min:10|regex:/[a-z]/|regex:/[A-Z]/|regex:/[0-9]/|regex:/[@$!%*#?&]/'
         ],
-
         [
-            'address'=>'Your address is not correct,you can start your address with letter(Dhaka)',
-            'occupation'=>'Please insert your occupation',
-            'gender'=>'Choose your gender',
-            'language'=>'Choose any language',
-            'zipcode'=>'Insert Correct zip code with four digits'
-        ],
+            'name'=>'Invalid Name',
+            'email'=>'Invalid Email',
+            'phone'=>'Invalid Phone',
+            'psw'=>'Invalid Password'
+        ]
+        
 
     );
-    $output=$request->address;
+    $output=$request->name;
+    
     return $output;
 
 }
